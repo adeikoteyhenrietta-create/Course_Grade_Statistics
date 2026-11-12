@@ -23,7 +23,7 @@ StudentInfo.tsv
 
 ## Datasets
 
-I tested the program with two data files. StudentInfo.tsv is the example from the activity instructions and has 5 students with 3 assignments. grades.tsv is a second file I made with 6 students and 4 assignments to check that the program works with different columns.
+I tested the program with three data files. StudentInfo.tsv is the example from the activity instructions and has 5 students with 3 assignments. grades.tsv is a second file I made with 6 students and 4 assignments to check that the program works with different columns. grades_missing.tsv has some blank scores and one score written as text to check how the program handles missing values.
 
 Each file is tab-separated with a header row. The first two columns are "Lname" and "Fname". The other columns are assignment scores and one of them must be "Final". The program does not assume any other column names so it works with any number of assignments.
 
@@ -33,6 +33,13 @@ Each file is tab-separated with a header row. The first two columns are "Lname" 
 2. Max Scores: shows the highest score in each assignment.
 3. Median Scores: shows the middle score in each assignment.
 4. Average Scores: shows the mean score in each assignment.
-5. Standard Deviation: shows the sample standard deviation of each assignment. 
+5. Standard Deviation: shows the sample standard deviation of each assignment.
+6. Missing Scores: shows how many scores are missing in each assignment. This part only appears when a file has missing scores.
 
 The name columns are left out of the statistics with "numeric_only=True".
+
+## Errors and missing values
+
+Blank scores and scores that are not numbers are treated as missing. They are left out of the statistics and counted in the Missing Scores part. A student with a missing Final score is listed at the bottom of the sorted table.
+
+The program stops with a short message if the file does not exist, if the file is empty or if there is no "Final" column.
